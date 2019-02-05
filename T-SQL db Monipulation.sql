@@ -45,13 +45,37 @@ values
 --Create New Table SalaryOfEmlployees and insert values from YerevanMall ande YerevanMallFinance
 select YM.FirstName,YM.LastName,YMF.Smoney into SalaryOfEmlployees from YerevanMall YM
 Join YerevanMAllFinance YMF on YM.Id=YMF.YerevanMallId 
- 
+ select * from SalaryOfEmlployees
+where Smoney>100000
+use KFC
+ Create Table DalmaMallKFC
+ (
+ Id int identity  not Null primary key,
+FirstName Nvarchar(15),
+Age INT check(Age>16 and Age<65)
+constraint Age default 18,
 
+LastName Nvarchar(15),
+WorkData date,
+Position Nvarchar(15),
+Salary Money, 
+Experience Tinyint,
 
+Email varchar(50) check(Email!=Null), 
+CreateDate Date default getdate(),
+ )
 
+ insert YerevanMall(FirstName,LastName,WorkData,Position,Salary,Experience,CreateDate,Email,Age)
+Values
+(N'Բարսեղյան' ,N'Գեվոր','27-02-2015',N'Trainer',100000,3,default,'Gvor@mail.ru',21),
+(N'Ավագյյան' ,N'Հենրիկ','04-09-2016',N'Trainer',100000,2,default,'Heno@mail.ru',23), 
+(N'Գրիգորյան' ,N'Գուրգեն','22-07-2015',N'Staff Member',80000,2,default,'Gugo@gmail.com',23),
+(N'Պետրոսյան' ,N'Սյուզի','20-01-2016',N'Trainer',80000,1,default,'Syuzi@mail.ru',17),
+(N'Պետրոսյան' ,N'Սիլվա','20-09-2010',N'Deputy Director',190000,8,default,'Silva@mail.ru',27),
+(N'Մնացականյան' ,N'Մնացական','11-09-2013',N'Director',300000,5,default,'Mno@mail.ru',40)
 
-
- 
+select DMK.FirstName,DMK.LastName,YMF.Smoney into SalaryOfEmlployee from DalmaMallKFC DMK
+join YerevanMAllFinance  YMF on DMK.Id=YMF.YerevanMallId
 
 
 
